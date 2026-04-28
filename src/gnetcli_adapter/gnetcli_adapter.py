@@ -109,6 +109,8 @@ async def get_config(breed: str) -> List[str]:
         return ["show running-config | no-more"]
     elif breed.startswith(("h3c", "vrp")):
         return ["display current-configuration"]
+    elif breed.startswith("aruos"):
+        return ["show ap-env", "show running-config"]
     raise Exception("unknown breed %r" % breed)
 
 
